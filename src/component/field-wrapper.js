@@ -46,7 +46,7 @@ const createWithHook = (Component) => {
 
   ComponentWithField.whyDidYouRender = true;
 
-  return ComponentWithField;
+  return React.memo(ComponentWithField, isEqualCreator(['metaData', 'index', 'children', 'items']));
 };
 
 createWithField.whyDidYouRender = true;

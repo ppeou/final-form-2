@@ -28,6 +28,14 @@ const Profile = () => {
     onSubmit: () => {}
   };
 
+  const section1Children = useMemo(() => (<>
+    <TextInput index={'input-username'} metaData={usernameMetaData}/>
+    <TextInput index={'input-email'} metaData={emailMetaData}/>
+    <TextInput index={'input-mirror-state'} metaData={mirrorStateMetaData}/>
+    <Dropdown index={'input-state'} metaData={stateMetaData}/>
+    <Button index={'input-editbutton'} metaData={editButtonMetaData}/>
+  </>), []);
+
   return (<section style={{padding: 10, margin: 10, border: 'solid 1px #333'}}>
     <h1>Profile</h1>
     <button onClick={() => setIsEditable(!isEditable)}>Toggle Edit Mode</button>
@@ -38,11 +46,7 @@ const Profile = () => {
             <form onSubmit={props.handleSubmit} autoComplete="off">
               <input type="hidden" autoComplete="false" />
               <Section index={'section1'} metaData={section1MetaData}>
-                <TextInput index={'input-username'} metaData={usernameMetaData}/>
-                <TextInput index={'input-email'} metaData={emailMetaData}/>
-                <TextInput index={'input-mirror-state'} metaData={mirrorStateMetaData}/>
-                <Dropdown index={'input-state'} metaData={stateMetaData}/>
-                <Button index={'input-editbutton'} metaData={editButtonMetaData}/>
+                {section1Children}
               </Section>
               <FormSpy subscription={{ values: true }}>
                 {
