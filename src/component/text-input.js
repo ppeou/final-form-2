@@ -39,5 +39,5 @@ TextInputWithHook.whyDidYouRender = true;
 
 //export default TextInputWithField;
 //export default TextInputWithHook;
-export default createWithField(TextInput);
-//export default createWithHook(TextInput);
+//export default createWithField(TextInput);
+export default createWithHook(TextInput);

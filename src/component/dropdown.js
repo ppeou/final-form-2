@@ -28,6 +28,7 @@ const Dropdown = ({children, index, metaData, list, ...props}) => {
   return (<div>
     <label>{label}:</label>
     <select {...input}>
+      <option>---</option>
       {
         list.map((item, idx) => (<option key={idx} value={item[fieldId]}>{item[fieldName]}</option>))
       }
@@ -64,5 +65,5 @@ DropdownWithField.whyDidYouRender = true;
 DropdownWithHook.whyDidYouRender = true;
 
 //export default DropdownWithHook;
-export default createWithField(withList(Dropdown));
-//export default createWithHook(withList(Dropdown));
+//export default createWithField(withList(Dropdown));
+export default createWithHook(withList(Dropdown));

@@ -24,7 +24,11 @@ const SectionWithField = ({metaData={}, index, children}) => {
   return (<Field name={dataField} key={index}>
     {
       (prop) => {
-        return (<Section metaData={metaData} {...prop} children={children} index={index}/>);
+        return (<Section
+          metaData={metaData}
+          children={children}
+          {...prop}
+          index={index}/>);
       }
     }
   </Field>);
@@ -43,5 +47,5 @@ SectionWithHook.whyDidYouRender = true;
 
 
 //export default SectionWithHook;
-export default createWithField(Section);
-//export default createWithHook(Section);
+//export default createWithField(Section);
+export default createWithHook(Section);

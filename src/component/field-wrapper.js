@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {memo, useMemo} from 'react';
 import {Field, useField} from 'react-final-form';
 import makeItSlow from './make-it-slow';
 import createIidGenerator from './iid';
@@ -15,26 +15,39 @@ const createWithField = (Component) => {
                    metaData={metaData}
                    children={children} index={index}
                    component={Component}
-                   key={index} />);
+                   index={index}
+                   key={index}/>);
   };
 
   return ComponentWithField;
 };
+const isEqualCreator = (fields) => (p, n) => {
+  const result = fields.every(k => {
+    if(p[k] !== n[k]) {
+      console.log(k, p[k], n[k]);
+    }
+    return p[k] === n[k];
+  });
+  console.log('isEqual', result);
+  return result;
+};
 
 const createWithHook = (Component) => {
-  const ComponentWithField = ({metaData = {}, index, children, items}) => {
-    const {dataField} = metaData;
-    const prop = useField(dataField || newIid(),  {subcription:{value: true}});
+
+  const ComponentWithField = ({metaData, index, children, items}) => {
+    const {dataField} = metaData || {};
+    const {input, meta} = useField(dataField || newIid(), {subcription: {value: true}});
+
     makeItSlow();
     console.log('createWithHook', dataField);
-    return (<Component metaData={metaData}
-                       children={children}
-                       index={index} items={items}
-                       {...prop}
-                       key={index} />);
+    const compInfo = {metaData, children, items, input, meta};
+    return (<Component {...compInfo} key={index}/>);
   };
 
-  return ComponentWithField;
+  ComponentWithField.whyDidYouRender = true;
+
+  //return ComponentWithField;
+  return React.memo(ComponentWithField, isEqualCreator(['metaData', 'index', 'children', 'items']));
 };
 
 createWithField.whyDidYouRender = true;
