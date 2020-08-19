@@ -13,6 +13,7 @@ const CounterWithRedux = () => {
 
   return (
     <div>
+      <h3>Counter-Redux</h3>
       <p>Counter: {seed}</p>
       <div className="button-section">
         <button onClick={() => counterAction.reset()}>Reset Counter</button>
