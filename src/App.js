@@ -1,9 +1,21 @@
 import React from 'react';
-import Profile from './view/profile';
+import {Provider as ReduxProvider} from './provider/redux';
+import {Provider as ReactContextProvider} from './provider/react-context';
+import CounterWithRedux from './view/counter-with-redux';
+import CounterWithReactContext from './view/counter-with-react-context';
+
 function App() {
   return (
     <section>
-      <Profile />
+      <ReduxProvider>
+        <h1>Redux</h1>
+        <CounterWithRedux/>
+      </ReduxProvider>
+      <hr />
+      <ReactContextProvider>
+        <h1>React-Context</h1>
+        <CounterWithReactContext />
+      </ReactContextProvider>
     </section>
   );
 }
