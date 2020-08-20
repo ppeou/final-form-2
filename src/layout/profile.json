@@ -1,0 +1,34 @@
+{
+  "component": "section",
+  "metaData": {"label":  "Profile View"},
+  "items": [
+    {
+      "component": "section",
+      "metaData": {"label":  "Personal Info"},
+      "items": [
+        {
+          "component": "input:text",
+          "metaData": {
+            "label": "First name",
+            "dataField": "firstName",
+            "required": true
+          }
+        },
+        {
+          "component": "input:text",
+          "metaData": {
+            "label": "Last name",
+            "dataField": "lastName",
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "component": "section",
+      "metaData": {"label":  "Profile View"},
+      "items": []
+    }
+
+  ]
+}

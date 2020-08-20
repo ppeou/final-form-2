@@ -19,13 +19,16 @@ const withList = (Component) => {
     const _list= list[dataSource] || [];
     return (<Component {...props} list={_list} />);
   };
+
+  ComponentWithList.whyDidYouRender = true;
   return ComponentWithList;
 }
 
-const Dropdown = ({children, index, metaData, list, ...props}) => {
+const Dropdown = (props) => {
+  const {index, metaData, list} = props;
   const {label, fieldId, fieldName} = metaData;
   const {input} = props;
-  return (<div>
+  return (<div key={index}>
     <label>{label}:</label>
     <select {...input}>
       <option>---</option>
@@ -37,33 +40,4 @@ const Dropdown = ({children, index, metaData, list, ...props}) => {
 };
 Dropdown.whyDidYouRender = true;
 
-const DropdownWithField = ({index, metaData}) => {
-  const {dataField, dataSource} = metaData;
-  const _list= list[dataSource] || [];
-  makeItSlow();
-
-  return (<Field name={dataField}>
-    {
-      (prop) => {
-        return (<Dropdown metaData={metaData} index={index} {...prop} list={_list} />);
-      }
-    }
-  </Field>);
-};
-
-const DropdownWithHook = ({index, metaData}) => {
-  const {dataField, dataSource} = metaData;
-  const _list= list[dataSource] || [];
-  const prop = useField(dataField, {subscription: {value:true}});
-  useMemo(() => {makeItSlow();}, [metaData]);
-
-  console.log('DropdownWithHook');
-  return (<Dropdown metaData={metaData} index={index} {...prop} list={_list} />);
-};
-
-DropdownWithField.whyDidYouRender = true;
-DropdownWithHook.whyDidYouRender = true;
-
-//export default DropdownWithHook;
-//export default createWithField(withList(Dropdown));
-export default createWithHook(withList(Dropdown));
+export default withList(Dropdown);
