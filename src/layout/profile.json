@@ -1,34 +1,66 @@
-{
-  "component": "section",
-  "metaData": {"label":  "Profile View"},
-  "items": [
-    {
-      "component": "section",
-      "metaData": {"label":  "Personal Info"},
-      "items": [
-        {
-          "component": "input:text",
-          "metaData": {
-            "label": "First name",
-            "dataField": "firstName",
-            "required": true
-          }
-        },
-        {
-          "component": "input:text",
-          "metaData": {
-            "label": "Last name",
-            "dataField": "lastName",
-            "required": true
-          }
-        }
-      ]
+[
+  {
+    "component": "section",
+    "metaData": {
+      "label": "Profile View"
     },
-    {
-      "component": "section",
-      "metaData": {"label":  "Profile View"},
-      "items": []
-    }
-
-  ]
-}
+    "items": [
+      {
+        "component": "section",
+        "metaData": {
+          "label": "Personal Info"
+        },
+        "items": [
+          {
+            "component": "input:text",
+            "metaData": {
+              "label": "First name",
+              "dataField": "profileData.firstName",
+              "required": true
+            }
+          },
+          {
+            "component": "input:text",
+            "metaData": {
+              "label": "Last name",
+              "dataField": "profileData.lastName",
+              "required": true
+            }
+          },
+          {
+            "component": "input:text",
+            "metaData": {
+              "label": "email",
+              "dataField": "profileData.email",
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "component": "section",
+        "metaData": {
+          "label": "Billing Info"
+        },
+        "items": [
+          {
+            "component": "input:text",
+            "metaData": {
+              "label": "Credit Card",
+              "dataField": "cardData.creditCard",
+              "required": true
+            }
+          },
+          {
+            "component": "input:text",
+            "metaData": {
+              "label": "Full Name",
+              "dataField": "cardData.fullName",
+              "required": true
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

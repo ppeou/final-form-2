@@ -1,18 +1,20 @@
-import React, {useMemo} from 'react';
+import React, {memo, useMemo} from 'react';
 import makeItSlow from './make-it-slow';
-import {Render} from './render';
+import {RenderComponent} from './render';
+import {createIsPropEqual} from './util';
 
 
 const Section = (props) => {
   const {index, metaData, items} = props;
   const {label} = metaData;
   makeItSlow();
-  const children = useMemo(() => items.map((cComp, idx) => Render(cComp, idx)), [items]);
+  const children = items.map((cComp, idx) => RenderComponent(cComp, idx));
   return (<div className="section" key={index}>
     <h1>{label}</h1>
     {children}
   </div>);
 };
 Section.whyDidYouRender = true;
-
-export default Section;
+const MemoSection = memo(Section, createIsPropEqual(['index','metaData', 'items']));
+export default MemoSection;
+//export default Section;
