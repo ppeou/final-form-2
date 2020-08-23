@@ -1,15 +1,10 @@
 import React, {useMemo, useState} from 'react';
 import {Form,FormSpy} from 'react-final-form';
 import GridForm from '../component/grid-form';
-import profileLayout from '../layout/profile.json';
+import profileLayout from '../layout/vehicle-inventory.json';
+import data from '../layout/vehicle-inventory-data.json';
 
-const data = [
-  {make: 'Toyota', model: 'Celica', salePersonEmail: 'email-1@sample.com'},
-  {make: 'Ford', model: 'Mondeo', salePersonEmail: 'email-2@sample.com'},
-  {make: 'Porsche', model: 'Boxter', salePersonEmail: 'email-3@sample.com'}
-];
-
-const Profile = () => {
+const VehicleInventory = () => {
   const formOptions = {
     initialValues: {cars:data},
     subscription: {},
@@ -17,7 +12,7 @@ const Profile = () => {
   };
 
   return (<section style={{padding: 10, margin: 10, border: 'solid 1px #333'}}>
-    <h1>Profile</h1>
+    <h1>Vehicle Inventory Management</h1>
 
     <Form {...formOptions}>
       {
@@ -29,7 +24,7 @@ const Profile = () => {
               <div><button>Submit</button></div>
               <FormSpy subscription={{values: true}}>
                 {({values}) => {
-                  return (<pre>{JSON.stringify(values)}</pre>)
+                  return (<pre>{JSON.stringify(values, undefined, 2)}</pre>)
                 }}
               </FormSpy>
             </form>
@@ -41,6 +36,6 @@ const Profile = () => {
   </section>);
 };
 
-Profile.whyDidYouRender = true;
+VehicleInventory.whyDidYouRender = true;
 
-export default Profile;
+export default VehicleInventory;

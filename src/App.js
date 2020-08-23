@@ -1,9 +1,9 @@
 import React from 'react';
-import Profile from './view/profile';
+import VehicleInventory from './view/vehicle-inventory';
 function App() {
   return (
     <section>
-      <Profile />
+      <VehicleInventory />
     </section>
   );
 }

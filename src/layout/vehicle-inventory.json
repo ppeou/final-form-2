@@ -19,10 +19,24 @@
       }
     },
     {
+      "component": "input:text",
+      "metaData": {
+        "dataField": "year",
+        "label": "Year"
+      }
+    },
+    {
       "component": "input:email",
       "metaData": {
-        "dataField": "salePersonEmail",
-        "label": "Sales Person Email"
+        "dataField": "dealerEmail",
+        "label": "Dealer Email"
+      }
+    },
+    {
+      "component": "input:text",
+      "metaData": {
+        "dataField": "safetyRating",
+        "label": "Safety Ratings"
       }
     }
   ]

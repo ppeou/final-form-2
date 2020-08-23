@@ -1,0 +1,23 @@
+[
+  {
+    "make": "Toyota",
+    "model": "HighLander",
+    "year": 2020,
+    "safetyRating": 4,
+    "dealerEmail": "email-1@sample.com"
+  },
+  {
+    "make": "Ford",
+    "model": "Explorer",
+    "year": 2020,
+    "safetyRating": 4,
+    "dealerEmail": "email-2@sample.com"
+  },
+  {
+    "make": "Fiat",
+    "model": "500X",
+    "year": 2020,
+    "safetyRating": 4,
+    "dealerEmail": "email-3@sample.com"
+  }
+]
