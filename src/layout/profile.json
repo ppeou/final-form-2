@@ -1,0 +1,29 @@
+[{
+  "component": "group",
+  "metaData": {
+    "label": "Info"
+  },
+  "items": [
+    {
+      "component": "input:text",
+      "metaData": {
+        "dataField": "make",
+        "label": "Make"
+      }
+    },
+    {
+      "component": "input:text",
+      "metaData": {
+        "dataField": "model",
+        "label": "Model"
+      }
+    },
+    {
+      "component": "input:email",
+      "metaData": {
+        "dataField": "salePersonEmail",
+        "label": "Sales Person Email"
+      }
+    }
+  ]
+}]
